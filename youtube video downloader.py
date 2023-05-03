@@ -4,7 +4,7 @@ from pytube import Playlist
 
 def download(link, filepath):
     # Get video of highest quality
-    vid = YouTube(link).streams.get_highest_resolution()
+    vid = YouTube(link, use_oauth=True, allow_oauth_cache=True).streams.get_highest_resolution()
 
     if vid is not None:
         vid.download(filepath)
